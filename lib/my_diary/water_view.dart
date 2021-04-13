@@ -165,37 +165,6 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                                       ),
                                     ],
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 4),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: <Widget>[
-                                        SizedBox(
-                                          width: 24,
-                                          height: 24,
-                                          child: Image.asset(
-                                              'assets/fitness_app/bell.png'),
-                                        ),
-                                        Flexible(
-                                          child: Text(
-                                            'Your bottle is empty, refill it!.',
-                                            textAlign: TextAlign.start,
-                                            style: TextStyle(
-                                              fontFamily:
-                                                  FitnessAppTheme.fontName,
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 12,
-                                              letterSpacing: 0.0,
-                                              color: HexColor('#F65283'),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
                                 ],
                               ),
                             )

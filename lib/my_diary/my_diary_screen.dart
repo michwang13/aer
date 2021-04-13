@@ -61,34 +61,13 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
     const int count = 9;
 
     listViews.add(
-      TitleView(
-        titleTxt: 'Mediterranean diet',
-        subTxt: 'Details',
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController,
-            curve:
-                Interval((1 / count) * 0, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController,
-      ),
-    );
-    listViews.add(
-      MediterranesnDietView(
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController,
-            curve:
-                Interval((1 / count) * 1, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController,
-      ),
-    );
-    listViews.add(
-      TitleView(
-        titleTxt: 'Meals today',
-        subTxt: 'Customize',
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController,
-            curve:
-                Interval((1 / count) * 2, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController,
+      WaterView(
+        mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
+            CurvedAnimation(
+                parent: widget.animationController,
+                curve: Interval((1 / count) * 7, 1.0,
+                    curve: Curves.fastOutSlowIn))),
+        mainScreenAnimationController: widget.animationController,
       ),
     );
 
@@ -103,57 +82,26 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
       ),
     );
 
-    listViews.add(
-      TitleView(
-        titleTxt: 'Body measurement',
-        subTxt: 'Today',
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController,
-            curve:
-                Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController,
-      ),
-    );
+    // listViews.add(
+    //   TitleView(
+    //     titleTxt: 'Mediterranean diet',
+    //     subTxt: 'Details',
+    //     animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+    //         parent: widget.animationController,
+    //         curve:
+    //             Interval((1 / count) * 0, 1.0, curve: Curves.fastOutSlowIn))),
+    //     animationController: widget.animationController,
+    //   ),
+    // );
 
     listViews.add(
-      BodyMeasurementView(
+      MediterranesnDietView(
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,
             curve:
-                Interval((1 / count) * 5, 1.0, curve: Curves.fastOutSlowIn))),
+                Interval((1 / count) * 1, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController,
       ),
-    );
-    listViews.add(
-      TitleView(
-        titleTxt: 'Water',
-        subTxt: 'Aqua SmartBottle',
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController,
-            curve:
-                Interval((1 / count) * 6, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController,
-      ),
-    );
-
-    listViews.add(
-      WaterView(
-        mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
-            CurvedAnimation(
-                parent: widget.animationController,
-                curve: Interval((1 / count) * 7, 1.0,
-                    curve: Curves.fastOutSlowIn))),
-        mainScreenAnimationController: widget.animationController,
-      ),
-    );
-    listViews.add(
-      GlassView(
-          animation: Tween<double>(begin: 0.0, end: 1.0).animate(
-              CurvedAnimation(
-                  parent: widget.animationController,
-                  curve: Interval((1 / count) * 8, 1.0,
-                      curve: Curves.fastOutSlowIn))),
-          animationController: widget.animationController),
     );
   }
 
@@ -251,7 +199,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'My Diary',
+                                  'Aer',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                     fontFamily: FitnessAppTheme.fontName,
@@ -259,67 +207,6 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                                     fontSize: 22 + 6 - 6 * topBarOpacity,
                                     letterSpacing: 1.2,
                                     color: FitnessAppTheme.darkerText,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 38,
-                              width: 38,
-                              child: InkWell(
-                                highlightColor: Colors.transparent,
-                                borderRadius: const BorderRadius.all(
-                                    Radius.circular(32.0)),
-                                onTap: () {},
-                                child: Center(
-                                  child: Icon(
-                                    Icons.keyboard_arrow_left,
-                                    color: FitnessAppTheme.grey,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                left: 8,
-                                right: 8,
-                              ),
-                              child: Row(
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 8),
-                                    child: Icon(
-                                      Icons.calendar_today,
-                                      color: FitnessAppTheme.grey,
-                                      size: 18,
-                                    ),
-                                  ),
-                                  Text(
-                                    '15 May',
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      fontFamily: FitnessAppTheme.fontName,
-                                      fontWeight: FontWeight.normal,
-                                      fontSize: 18,
-                                      letterSpacing: -0.2,
-                                      color: FitnessAppTheme.darkerText,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              height: 38,
-                              width: 38,
-                              child: InkWell(
-                                highlightColor: Colors.transparent,
-                                borderRadius: const BorderRadius.all(
-                                    Radius.circular(32.0)),
-                                onTap: () {},
-                                child: Center(
-                                  child: Icon(
-                                    Icons.keyboard_arrow_right,
-                                    color: FitnessAppTheme.grey,
                                   ),
                                 ),
                               ),
