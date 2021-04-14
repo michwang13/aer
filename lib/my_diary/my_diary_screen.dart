@@ -1,10 +1,7 @@
-import 'package:hackust/ui_view/body_measurement.dart';
-import 'package:hackust/ui_view/glass_view.dart';
 import 'package:hackust/ui_view/mediterranesn_diet_view.dart';
-import 'package:hackust/ui_view/title_view.dart';
 import 'package:hackust/fitness_app_theme.dart';
-import 'package:hackust/my_diary/meals_list_view.dart';
 import 'package:hackust/my_diary/water_view.dart';
+import 'package:hackust/my_diary/meals_list_view.dart';
 
 import 'package:flutter/material.dart';
 
@@ -81,19 +78,6 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
         mainScreenAnimationController: widget.animationController,
       ),
     );
-
-    // listViews.add(
-    //   TitleView(
-    //     titleTxt: 'Mediterranean diet',
-    //     subTxt: 'Details',
-    //     animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-    //         parent: widget.animationController,
-    //         curve:
-    //             Interval((1 / count) * 0, 1.0, curve: Curves.fastOutSlowIn))),
-    //     animationController: widget.animationController,
-    //   ),
-    // );
-
     listViews.add(
       MediterranesnDietView(
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(

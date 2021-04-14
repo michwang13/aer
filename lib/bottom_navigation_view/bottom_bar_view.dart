@@ -166,7 +166,7 @@ class _BottomBarViewState extends State<BottomBarView>
                             widget.addClick();
                           },
                           child: Icon(
-                            Icons.add,
+                            Icons.home,
                             color: FitnessAppTheme.white,
                             size: 32,
                           ),

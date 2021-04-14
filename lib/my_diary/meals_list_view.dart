@@ -1,6 +1,4 @@
 import 'package:hackust/fitness_app_theme.dart';
-import 'package:vector_math/vector_math_lists.dart';
-import 'package:hackust/my_diary/meals_list_view.dart';
 import 'package:hackust/models/meals_list_data.dart';
 import 'package:hackust/main.dart';
 import 'package:flutter/material.dart';
@@ -99,7 +97,7 @@ class MealsView extends StatelessWidget {
       animation: animationController,
       builder: (BuildContext context, Widget child) {
         return GestureDetector(
-          onTap: () => print('test'),
+          onTap: () => editModalBottomSheet(context),
           child: FadeTransition(
             opacity: animation,
             child: Transform(
@@ -159,8 +157,8 @@ class MealsView extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: <Widget>[
                                   Padding(
-                                    padding:
-                                        const EdgeInsets.only(left: 4, bottom: 3),
+                                    padding: const EdgeInsets.only(
+                                        left: 4, bottom: 3),
                                   ),
                                 ],
                               ),
@@ -199,4 +197,73 @@ class MealsView extends StatelessWidget {
       },
     );
   }
+}
+
+void editModalBottomSheet(context) {
+  showModalBottomSheet(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(20),
+        ),
+      ),
+      context: context,
+      builder: (BuildContext bc) {
+        return Center(
+          child: Container(
+            color: Colors.indigo[600],
+            padding: EdgeInsets.fromLTRB(20, 10, 20, 0),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                      icon: Icon(
+                        Icons.cancel,
+                        color: Colors.indigo[400],
+                        size: 25,
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 30),
+                      child: Text(
+                        "Place near reader to proceed",
+                        style: TextStyle(
+                            fontFamily: FitnessAppTheme.fontName,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            letterSpacing: 0.27,
+                            color: Colors.white),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 250,
+                      height: 250,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(),
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                      child: Image(
+                          image: AssetImage("assets/fitness_app/qr_code.png")),
+                    )
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      });
 }

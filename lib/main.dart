@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hackust/fitness_app_theme.dart';
 import 'package:hackust/fitness_app_home_screen.dart';
 
 void main() {
