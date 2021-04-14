@@ -1,10 +1,10 @@
-import 'package:hackust/fitness_app_theme.dart';
-import 'package:hackust/models/meals_list_data.dart';
+import 'package:hackust/app_theme.dart';
+import 'package:hackust/models/features_data.dart';
 import 'package:hackust/main.dart';
 import 'package:flutter/material.dart';
 
-class MealsListView extends StatefulWidget {
-  const MealsListView(
+class FeaturesView extends StatefulWidget {
+  const FeaturesView(
       {Key key, this.mainScreenAnimationController, this.mainScreenAnimation})
       : super(key: key);
 
@@ -12,13 +12,13 @@ class MealsListView extends StatefulWidget {
   final Animation<dynamic> mainScreenAnimation;
 
   @override
-  _MealsListViewState createState() => _MealsListViewState();
+  _FeaturesViewState createState() => _FeaturesViewState();
 }
 
-class _MealsListViewState extends State<MealsListView>
+class _FeaturesViewState extends State<FeaturesView>
     with TickerProviderStateMixin {
   AnimationController animationController;
-  List<MealsListData> mealsListData = MealsListData.tabIconsList;
+  List<FeaturesData> featuresData = FeaturesData.tabIconsList;
 
   @override
   void initState() {
@@ -54,11 +54,11 @@ class _MealsListViewState extends State<MealsListView>
               child: ListView.builder(
                 padding: const EdgeInsets.only(
                     top: 0, bottom: 0, right: 16, left: 16),
-                itemCount: mealsListData.length,
+                itemCount: featuresData.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
                   final int count =
-                      mealsListData.length > 10 ? 10 : mealsListData.length;
+                      featuresData.length > 10 ? 10 : featuresData.length;
                   final Animation<double> animation =
                       Tween<double>(begin: 0.0, end: 1.0).animate(
                           CurvedAnimation(
@@ -68,7 +68,7 @@ class _MealsListViewState extends State<MealsListView>
                   animationController.forward();
 
                   return MealsView(
-                    mealsListData: mealsListData[index],
+                    featuresData: featuresData[index],
                     animation: animation,
                     animationController: animationController,
                   );
@@ -84,10 +84,10 @@ class _MealsListViewState extends State<MealsListView>
 
 class MealsView extends StatelessWidget {
   const MealsView(
-      {Key key, this.mealsListData, this.animationController, this.animation})
+      {Key key, this.featuresData, this.animationController, this.animation})
       : super(key: key);
 
-  final MealsListData mealsListData;
+  final FeaturesData featuresData;
   final AnimationController animationController;
   final Animation<dynamic> animation;
 
@@ -114,15 +114,15 @@ class MealsView extends StatelessWidget {
                         decoration: BoxDecoration(
                           boxShadow: <BoxShadow>[
                             BoxShadow(
-                                color: HexColor(mealsListData.endColor)
+                                color: HexColor(featuresData.endColor)
                                     .withOpacity(0.6),
                                 offset: const Offset(1.1, 4.0),
                                 blurRadius: 8.0),
                           ],
                           gradient: LinearGradient(
                             colors: <HexColor>[
-                              HexColor(mealsListData.startColor),
-                              HexColor(mealsListData.endColor),
+                              HexColor(featuresData.startColor),
+                              HexColor(featuresData.endColor),
                             ],
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
@@ -142,14 +142,14 @@ class MealsView extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Text(
-                                mealsListData.titleTxt,
+                                featuresData.titleTxt,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  fontFamily: FitnessAppTheme.fontName,
+                                  fontFamily: AppTheme.fontName,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20,
                                   letterSpacing: 0.2,
-                                  color: FitnessAppTheme.white,
+                                  color: AppTheme.white,
                                 ),
                               ),
                               Row(
@@ -174,7 +174,7 @@ class MealsView extends StatelessWidget {
                         width: 84,
                         height: 84,
                         decoration: BoxDecoration(
-                          color: FitnessAppTheme.nearlyWhite.withOpacity(0.2),
+                          color: AppTheme.nearlyWhite.withOpacity(0.2),
                           shape: BoxShape.circle,
                         ),
                       ),
@@ -185,7 +185,7 @@ class MealsView extends StatelessWidget {
                       child: SizedBox(
                         width: 80,
                         height: 80,
-                        child: Image.asset(mealsListData.imagePath),
+                        child: Image.asset(featuresData.imagePath),
                       ),
                     )
                   ],
@@ -237,7 +237,7 @@ void editModalBottomSheet(context) {
                       child: Text(
                         "Place near reader to proceed",
                         style: TextStyle(
-                            fontFamily: FitnessAppTheme.fontName,
+                            fontFamily: AppTheme.fontName,
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
                             letterSpacing: 0.27,
@@ -256,8 +256,8 @@ void editModalBottomSheet(context) {
                           color: Colors.white,
                           border: Border.all(),
                           borderRadius: BorderRadius.all(Radius.circular(20))),
-                      child: Image(
-                          image: AssetImage("assets/fitness_app/qr_code.png")),
+                      child:
+                          Image(image: AssetImage("assets/images/qr_code.png")),
                     )
                   ],
                 ),

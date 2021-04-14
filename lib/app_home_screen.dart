@@ -1,22 +1,22 @@
 import 'package:hackust/models/tabIcon_data.dart';
 import 'package:flutter/material.dart';
 import 'bottom_navigation_view/bottom_bar_view.dart';
-import 'fitness_app_theme.dart';
-import 'my_diary/my_diary_screen.dart';
+import 'app_theme.dart';
+import 'home_menu/home_screen.dart';
 
-class FitnessAppHomeScreen extends StatefulWidget {
+class AppHomeScreen extends StatefulWidget {
   @override
-  _FitnessAppHomeScreenState createState() => _FitnessAppHomeScreenState();
+  _AppHomeScreenState createState() => _AppHomeScreenState();
 }
 
-class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
+class _AppHomeScreenState extends State<AppHomeScreen>
     with TickerProviderStateMixin {
   AnimationController animationController;
 
   List<TabIconData> tabIconsList = TabIconData.tabIconsList;
 
   Widget tabBody = Container(
-    color: FitnessAppTheme.background,
+    color: AppTheme.background,
   );
 
   @override
@@ -28,7 +28,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
 
     animationController = AnimationController(
         duration: const Duration(milliseconds: 600), vsync: this);
-    tabBody = MyDiaryScreen(animationController: animationController);
+    tabBody = HomeScreen(animationController: animationController);
     super.initState();
   }
 
@@ -41,7 +41,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: FitnessAppTheme.background,
+      color: AppTheme.background,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: FutureBuilder<bool>(
@@ -85,7 +85,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                 }
                 setState(() {
                   tabBody =
-                      MyDiaryScreen(animationController: animationController);
+                      HomeScreen(animationController: animationController);
                 });
               });
             }

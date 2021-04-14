@@ -1,20 +1,19 @@
-import 'package:hackust/ui_view/mediterranesn_diet_view.dart';
-import 'package:hackust/fitness_app_theme.dart';
-import 'package:hackust/my_diary/water_view.dart';
-import 'package:hackust/my_diary/meals_list_view.dart';
+import 'package:hackust/ui_view/statistics_view.dart';
+import 'package:hackust/app_theme.dart';
+import 'package:hackust/home_menu/daily_consumption_view.dart';
+import 'package:hackust/home_menu/features_view.dart';
 
 import 'package:flutter/material.dart';
 
-class MyDiaryScreen extends StatefulWidget {
-  const MyDiaryScreen({Key key, this.animationController}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key key, this.animationController}) : super(key: key);
 
   final AnimationController animationController;
   @override
-  _MyDiaryScreenState createState() => _MyDiaryScreenState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _MyDiaryScreenState extends State<MyDiaryScreen>
-    with TickerProviderStateMixin {
+class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   Animation<double> topBarAnimation;
 
   List<Widget> listViews = <Widget>[];
@@ -69,7 +68,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
     );
 
     listViews.add(
-      MealsListView(
+      FeaturesView(
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
             CurvedAnimation(
                 parent: widget.animationController,
@@ -79,7 +78,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
       ),
     );
     listViews.add(
-      MediterranesnDietView(
+      StatisticsView(
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,
             curve:
@@ -97,7 +96,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: FitnessAppTheme.background,
+      color: AppTheme.background,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(
@@ -153,14 +152,13 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                     0.0, 30 * (1.0 - topBarAnimation.value), 0.0),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: FitnessAppTheme.white.withOpacity(topBarOpacity),
+                    color: AppTheme.white.withOpacity(topBarOpacity),
                     borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(32.0),
                     ),
                     boxShadow: <BoxShadow>[
                       BoxShadow(
-                          color: FitnessAppTheme.grey
-                              .withOpacity(0.4 * topBarOpacity),
+                          color: AppTheme.grey.withOpacity(0.4 * topBarOpacity),
                           offset: const Offset(1.1, 1.1),
                           blurRadius: 10.0),
                     ],
@@ -186,11 +184,11 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                                   'Aer',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
-                                    fontFamily: FitnessAppTheme.fontName,
+                                    fontFamily: AppTheme.fontName,
                                     fontWeight: FontWeight.w700,
                                     fontSize: 22 + 6 - 6 * topBarOpacity,
                                     letterSpacing: 1.2,
-                                    color: FitnessAppTheme.darkerText,
+                                    color: AppTheme.darkerText,
                                   ),
                                 ),
                               ),

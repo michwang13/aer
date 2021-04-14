@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hackust/fitness_app_home_screen.dart';
+import 'package:hackust/app_home_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Hackust',
-      home: FitnessAppHomeScreen(),
+      home: AppHomeScreen(),
     );
   }
 }

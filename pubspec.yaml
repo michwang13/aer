@@ -1,5 +1,5 @@
 name: hackust
-description: A new Flutter project.
+description: Dummmy app for Aer. The app will be used by users to rent, refill, and return their bottle.
 
 publish_to: "none"
 
@@ -25,4 +25,4 @@ flutter:
     uses-material-design: true
 
     assets:
-        - assets/fitness_app/
+        - assets/images/
